@@ -1,267 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Universo Hoje - Explore o Cosmos</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serviços ML</title>
   <style>
-    /* ===== RESET E GLOBAL ===== */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Poppins', Arial, sans-serif;
-      background: radial-gradient(circle at top, #0a0a23, #060612);
-      color: #eee;
-      overflow-x: hidden;
-      line-height: 1.7;
-    }
-
-    a { color: #8ab4ff; text-decoration: none; transition: 0.3s; }
-    a:hover { color: #fff; text-shadow: 0 0 5px #8ab4ff; }
-
-    /* ===== CABEÇALHO ===== */
-    header {
+      background-color: #ffeb3b; /* Fundo amarelo */
+      font-family: Arial, sans-serif;
       text-align: center;
       padding: 80px 20px;
-      background: linear-gradient(120deg, #1a1a50, #000, #1a1a50);
-      background-size: 300% 300%;
-      animation: gradientMove 8s infinite alternate;
+      color: #222;
     }
 
-    @keyframes gradientMove {
-      0% { background-position: left; }
-      100% { background-position: right; }
+    h1 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      text-transform: uppercase;
     }
 
-    header h1 {
-      font-size: 3em;
-      letter-spacing: 2px;
+    .btn {
+      display: inline-block;
+      background-color: #000;
       color: #fff;
-      text-shadow: 0 0 10px #4f6dff;
-    }
-
-    header p {
-      font-size: 1.2em;
-      color: #ccc;
-      margin-top: 10px;
-    }
-
-    /* ===== NEWSLETTER ===== */
-    .newsletter {
-      background: #111;
-      padding: 40px 20px;
-      border-radius: 16px;
-      text-align: center;
-      max-width: 700px;
-      margin: -40px auto 40px;
-      box-shadow: 0 0 15px rgba(80, 100, 255, 0.2);
-    }
-
-    .newsletter h2 {
-      color: #8ab4ff;
-      margin-bottom: 20px;
-    }
-
-    .newsletter input[type="email"] {
-      padding: 12px 15px;
-      width: 60%;
-      max-width: 320px;
+      padding: 15px 40px;
+      font-size: 20px;
       border: none;
-      border-radius: 8px;
-      outline: none;
-      background: #222;
-      color: #fff;
-    }
-
-    .newsletter button {
-      padding: 12px 20px;
-      background: linear-gradient(45deg, #4f6dff, #6d8bff);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      margin-left: 10px;
-      font-weight: bold;
+      border-radius: 10px;
       cursor: pointer;
+      text-decoration: none;
       transition: all 0.3s ease;
     }
 
-    .newsletter button:hover {
+    .btn:hover {
+      background-color: #333;
       transform: scale(1.05);
-      box-shadow: 0 0 10px #4f6dff;
-    }
-
-    /* ===== POSTS ===== */
-    section {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    h2 {
-      text-align: center;
-      color: #8ab4ff;
-      margin-bottom: 30px;
-      text-shadow: 0 0 5px #4f6dff;
-    }
-
-    .posts {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      animation: fadeUp 1s ease forwards;
-      opacity: 0;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .post {
-      background: #1a1a2f;
-      border-radius: 12px;
-      padding: 20px;
-      border: 1px solid rgba(255,255,255,0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .post:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 15px rgba(80,100,255,0.3);
-    }
-
-    .post h3 {
-      color: #fff;
-      margin-bottom: 10px;
-    }
-
-    .post p {
-      color: #ccc;
-      margin: 8px 0;
-    }
-
-    /* ===== RODAPÉ ===== */
-    footer {
-      background: #060612;
-      color: #999;
-      padding: 60px 20px;
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
-
-    footer h3 {
-      color: #8ab4ff;
-      margin-top: 25px;
-      font-size: 1.1em;
-    }
-
-    footer nav ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    footer nav ul li {
-      display: inline-block;
-      margin: 5px 10px;
-    }
-
-    footer nav ul li a {
-      color: #bbb;
-      font-size: 0.95em;
-    }
-
-    footer nav ul li a:hover {
-      color: #fff;
-    }
-
-    footer p {
-      font-size: 0.9em;
-      color: #aaa;
     }
   </style>
 </head>
 <body>
-
-  <!-- CABEÇALHO -->
-  <header>
-    <h1>🌌 Universo Hoje</h1>
-    <p>Explore o cosmos e descubra o que há além das estrelas.</p>
-  </header>
-
-  <!-- NEWSLETTER -->
-  <section class="newsletter">
-    <h2>🚀 Cadastre-se e receba novidades do espaço</h2>
-    <form>
-      <input type="email" placeholder="Digite seu melhor e-mail" required>
-      <button type="submit">INSCREVER</button>
-    </form>
-    <p>Conteúdos exclusivos sobre astronomia e mistérios do universo direto no seu e-mail.</p>
-  </section>
-
-  <!-- ARTIGOS -->
-  <section>
-    <h2>✨ Artigos em Destaque</h2>
-    <div class="posts">
-      <div class="post">
-        <h3>🌍 O planeta que pode abrigar vida</h3>
-        <p><strong>Categoria A • Planetas</strong></p>
-        <p>Pesquisadores encontraram um exoplaneta na zona habitável — com condições parecidas às da Terra.</p>
-      </div>
-
-      <div class="post">
-        <h3>🕳️ O que é um buraco negro?</h3>
-        <p><strong>Categoria B • Astrofísica</strong></p>
-        <p>Esses gigantes misteriosos têm uma gravidade tão forte que deformam o tecido do espaço-tempo.</p>
-      </div>
-
-      <div class="post">
-        <h3>✨ As constelações mais famosas</h3>
-        <p><strong>Categoria C • Astronomia</strong></p>
-        <p>Orion, Cruzeiro do Sul, Escorpião... conheça suas histórias e como identificá-las no céu.</p>
-      </div>
-
-      <div class="post">
-        <h3>🚀 A nova corrida espacial</h3>
-        <p><strong>Categoria D • Exploração</strong></p>
-        <p>Empresas e agências disputam a liderança na exploração de Marte. Veja quem está na frente.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- RODAPÉ -->
-  <footer>
-    <h3>LINKS RÁPIDOS</h3>
-    <nav>
-      <ul>
-        <li><a href="#">Início</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Sobre</a></li>
-        <li><a href="#">Contato</a></li>
-      </ul>
-    </nav>
-
-    <h3>CATEGORIAS</h3>
-    <p>Planetas • Astrofísica • Astronomia • Exploração</p>
-
-    <h3>REDES SOCIAIS</h3>
-    <p>
-      <a href="#">Facebook</a> •
-      <a href="#">Instagram</a> •
-      <a href="#">YouTube</a> •
-      <a href="#">Twitter</a>
-    </p>
-
-    <p>© 2025 Universo Hoje • <a href="#">Política de Privacidade</a> • <a href="#">Termos de Uso</a></p>
-  </footer>
-
-  <script>
-    // Suave entrada dos posts
-    window.addEventListener('scroll', () => {
-      const posts = document.querySelector('.posts');
-      const trigger = window.innerHeight / 1.3;
-      const top = posts.getBoundingClientRect().top;
-      if(top < trigger) posts.style.opacity = '1';
-    });
-  </script>
-
+  <h1>Serviços ML</h1>
+  <a href="https://solicitarseucartaoml.github.io/novo/" class="btn">Solicite já aqui</a>
 </body>
 </html>
